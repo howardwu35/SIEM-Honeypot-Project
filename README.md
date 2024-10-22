@@ -181,6 +181,3 @@ Project Link: [https://github.com/username/azure-vm-security-lab](https://github
 - [Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/)
 - [Kusto Query Language (KQL) Reference](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/)
 
----
-
-This template should help you set up and monitor your Azure VM lab for cybersecurity purposes effectively. Let me know if you need any further modifications!
