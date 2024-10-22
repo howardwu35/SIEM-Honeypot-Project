@@ -169,7 +169,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@YourTwitterHandle](https://twitter.com/YourTwitterHandle) - email@example.com
+Howard Wu - howardwu35@gmail.com
 
 Project Link: [https://github.com/username/azure-vm-security-lab](https://github.com/username/azure-vm-security-lab)
 
