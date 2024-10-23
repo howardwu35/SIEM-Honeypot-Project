@@ -40,9 +40,8 @@ The architecture consists of the following components:
 3. **SIEM Tool (Azure Sentinel or another third-party solution)**: Integrated with Log Analytics Workspace to track and correlate security events.
 4. **Attack Traffic**: Traffic from global attackers targeting the open VM.
 
-<div style="text-align: center;">
-  <img src="images/SIEM_Lab_Architecture.jpg" alt="Overview" width="450"/>
-</div>
+| ![Alt text](images/SIEM_Lab_Architecture.jpg) |
+|:------------------------------:|
 
 ---
 
