@@ -41,7 +41,7 @@ The architecture consists of the following components:
 4. **Attack Traffic**: Traffic from global attackers targeting the open VM.
 
 <div style="text-align: center;">
-  <img src="images/SIEM_Lab_Architecture.jpg" alt="Alt text" width="450"/>
+  <img src="images/SIEM_Lab_Architecture.jpg" alt="Overview" width="450"/>
 </div>
 
 ---
