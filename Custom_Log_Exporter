@@ -1,0 +1,83 @@
+# Get API key from here: https://ipgeolocation.io/
+$API_KEY      = "d4600b4efdef42b39828f5155041a457"
+$LOGFILE_NAME = "failed_rdp.log"
+$LOGFILE_PATH = "C:\ProgramData\$LOGFILE_NAME"
+
+# This filter will be used to filter failed RDP events from Windows Event Viewer
+$EventId = 4625
+
+# Function to write sample logs
+Function Write-Sample-Log {
+    $sampleLogs = @(
+        "latitude:47.91542,longitude:-120.60306,destinationhost:samplehost,username:fakeuser,sourcehost:24.16.97.222,state:Washington,country:United States,label:United States - 24.16.97.222,timestamp:2021-10-26 03:28:29",
+        "latitude:-22.90906,longitude:-47.06455,destinationhost:samplehost,username:lnwbaq,sourcehost:20.195.228.49,state:Sao Paulo,country:Brazil,label:Brazil - 20.195.228.49,timestamp:2021-10-26 05:46:20"
+        # Add other sample logs here
+    )
+    $sampleLogs | Out-File $LOGFILE_PATH -Append -Encoding utf8
+}
+
+# Create log file if it doesn't exist
+if (-Not (Test-Path $LOGFILE_PATH)) {
+    New-Item -ItemType File -Path $LOGFILE_PATH -Force
+    Write-Sample-Log
+}
+
+# Function to format timestamps
+Function Format-Timestamp {
+    param (
+        [datetime]$dateTime
+    )
+    return $dateTime.ToString("yyyy-MM-dd HH:mm:ss")
+}
+
+# Infinite Loop to monitor Event Viewer logs
+while ($true) {
+    Start-Sleep -Seconds 1
+
+    # Retrieve events from Windows Event Viewer
+    $events = Get-WinEvent -FilterHashtable @{ LogName = 'Security'; Id = $EventId } -ErrorAction SilentlyContinue
+
+    # Initialize an array to hold log entries
+    $logEntries = @()
+
+    foreach ($event in $events) {
+        $sourceIp = $event.Properties[19].Value
+        if ($sourceIp.Length -ge 5) {
+            $timestamp = Format-Timestamp $event.TimeCreated
+            $destinationHost = $event.MachineName
+            $username = $event.Properties[5].Value
+            $sourceHost = $event.Properties[11].Value
+
+            # Avoid reading the log file repeatedly
+            $logContents = Get-Content -Path $LOGFILE_PATH -ErrorAction SilentlyContinue
+            
+            if (-Not ($logContents -match [regex]::Escape($timestamp))) {
+                Start-Sleep -Seconds 1
+
+                # Make web request to the geolocation API
+                $API_ENDPOINT = "https://api.ipgeolocation.io/ipgeo?apiKey=$API_KEY&ip=$sourceIp"
+                try {
+                    $response = Invoke-WebRequest -Uri $API_ENDPOINT -UseBasicParsing
+                    $responseData = $response.Content | ConvertFrom-Json
+                    $latitude = $responseData.latitude
+                    $longitude = $responseData.longitude
+                    $stateProv = $responseData.state_prov -ne "" ? $responseData.state_prov : "null"
+                    $country = $responseData.country_name -ne "" ? $responseData.country_name : "null"
+
+                    # Create log entry
+                    $logEntry = "latitude:$latitude,longitude:$longitude,destinationhost:$destinationHost,username:$username,sourcehost:$sourceIp,state:$stateProv,country:$country,label:$country - $sourceIp,timestamp:$timestamp"
+                    $logEntries += $logEntry
+
+                    Write-Host -BackgroundColor Black -ForegroundColor Magenta $logEntry
+                } catch {
+                    Write-Host "Error retrieving geolocation data for IP $sourceIp" -ForegroundColor Red
+                }
+            }
+        }
+    }
+
+    # Write all log entries at once
+    if ($logEntries.Count -gt 0) {
+        $logEntries | Out-File $LOGFILE_PATH -Append -Encoding utf8
+    }
+}
