@@ -68,9 +68,9 @@ The architecture consists of the following components:
 
 ### Steps:
 
-|                  |
-|:----------------:|
 | **Azure Portal** |
+|:----------------:|
+| After creating an Azure account, open the Azure Portal |
 ![Azure Portal](images/Screenshots/SIEM_sc1.PNG)
 
 |                  |
