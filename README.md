@@ -8,13 +8,11 @@ This project provides a comprehensive walkthrough of using Microsoft Azure to de
 
 ## Table of Contents
 - [About the Project](#about-the-project)
+- [Tools and Environments Used](#tools-and-environments-used) 
 - [Architecture Overview](#architecture-overview)
 - [Lab Setup](#lab-setup)
-- [Monitoring and Analysis Tools](#monitoring-and-analysis-tools)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -29,6 +27,22 @@ We intentionally expose the VM to the internet and track the malicious activitie
 - A Security Information and Event Management (SIEM) tool to correlate, visualize, and alert on attack patterns.
   
 The data collected is used for forensic analysis, intrusion detection, and crafting better defensive mechanisms.
+
+---
+
+## Tools and Environments Used
+
+- **Microsoft Azure**: Cloud platform for hosting and managing resources.
+  - **Azure Virtual Machines**: Windows 10 VM deployed as a monitored target.
+  - **Azure Log Analytics Workspace**: Centralized tool for log collection and data analysis.
+  - **Microsoft Defender for Cloud**: Advanced threat protection and security insights.
+  - **Microsoft Sentinel**: SIEM (Security Information and Event Management) tool for aggregating and visualizing security events.
+
+- **PowerShell**: Scripting language used for automation, particularly for monitoring Event Viewer on the VM and logging failed login attempts.
+
+- **IPgeolocation API** (via [IPgeolocation.io](https://ipgeolocation.io/)): API to fetch geolocation data based on IP addresses, enabling mapping of login attempt origins in Microsoft Sentinel.
+
+- **Windows Event Viewer**: Integrated tool on Windows 10 VM used for system and security event logging, with a focus on EventID 4625 for tracking failed login attempts.
 
 ---
 
@@ -50,6 +64,7 @@ The architecture consists of the following components:
 ### Prerequisites:
 - An active [Microsoft Azure](https://azure.microsoft.com) account.
 - Windows Machine (This project is tailored towards Windows OS)
+  - PowerShell Installed
 - Internet Access 
 
 ### Steps:
@@ -72,29 +87,6 @@ The architecture consists of the following components:
    - Leave the VM running continuously to attract global attackers.
    - Monitor and capture the attack traffic.
 
----
-
-## Monitoring and Analysis Tools
-
-### Azure Log Analytics
-- **Logs Captured**: 
-  - Syslog
-  - Performance logs
-  - Security events (failed SSH attempts, brute-force attacks, etc.)
-  
-- **Queries**: Use Kusto Query Language (KQL) to query and analyze the logs. Example query to view failed SSH login attempts:
-  ```kusto
-  Syslog
-  | where Facility == "auth"
-  | where SeverityLevel == "Error"
-  | where ProcessName == "sshd"
-  | project TimeGenerated, Computer, UserName, Message
-  ```
-
-### SIEM (Azure Sentinel or other)
-- **Dashboards**: Use predefined or custom dashboards to visualize attack patterns.
-- **Alerts**: Set up rules to trigger alerts for suspicious behavior (e.g., repeated failed login attempts).
-  
 ---
 
 ## Usage
