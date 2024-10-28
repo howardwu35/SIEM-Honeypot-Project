@@ -12,7 +12,6 @@ This project provides a comprehensive walkthrough of using Microsoft Azure to de
 - [Architecture Overview](#architecture-overview)
 - [Lab Setup](#lab-setup)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
 - [License](#license)
 - [Contact](#contact)
 
@@ -69,8 +68,10 @@ The architecture consists of the following components:
 
 ### Steps:
 
+![Azure Portal](images/Screenshots/SIEM_sc1.png)
+
 1. **Create the Azure VM**:
-   - Deploy a Linux VM (e.g., Ubuntu) using the Azure Portal.
+   - Deploy a Windows VM using the Azure Portal.
    - Ensure the VM has a public IP address and is connected to the internet with minimal firewall protections.
    - Open necessary ports to attract attacks (e.g., SSH on port 22, HTTP on port 80, etc.).
 
@@ -96,14 +97,6 @@ The architecture consists of the following components:
   - Failed RDP login attempts
   
 - Analyze attack vectors using SIEM dashboards and respond to any detected threats with custom queries or automated playbooks.
-
----
-
-## Screenshots
-
-![VM Log Analytics Dashboard](link-to-dashboard-image.png)
-
-![SIEM Attack Analysis](link-to-siem-analysis-image.png)
 
 ---
 
