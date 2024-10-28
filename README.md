@@ -68,13 +68,14 @@ The architecture consists of the following components:
 
 ### Steps:
 
-|     1. **Create the Azure VM**:
-   - Deploy a Windows VM using the Azure Portal.
-   - Ensure the VM has a public IP address and is connected to the internet with minimal firewall protections.
-   - Open necessary ports to attract attacks (e.g., SSH on port 22, HTTP on port 80, etc.).|
 |:------------------:|
 | **Azure Portal**    |
 ![Azure Portal](images/Screenshots/SIEM_sc1.PNG)
+
+|:------------------:|
+| **Create VM**    |
+![Azure Portal](images/Screenshots/SIEM_sc2.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc3.PNG)
 
 1. **Create the Azure VM**:
    - Deploy a Windows VM using the Azure Portal.
