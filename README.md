@@ -68,7 +68,9 @@ The architecture consists of the following components:
 
 ### Steps:
 
-<p align="center">**Azure Portal**</p>
+| Centered Text      |
+|:------------------:|
+| **Azure Portal**    |
 ![Azure Portal](images/Screenshots/SIEM_sc1.PNG)
 
 1. **Create the Azure VM**:
