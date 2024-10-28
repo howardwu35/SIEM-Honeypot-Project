@@ -62,12 +62,13 @@ The architecture consists of the following components:
 
 ### Prerequisites:
 - An active [Microsoft Azure](https://azure.microsoft.com) account.
-- Windows Machine (This project is tailored towards Windows OS)
+- Windows Machine (This project is tailored towards Windows OS).
   - PowerShell Installed
-- Internet Access 
+- Internet Access (for 
 
 ### Steps:
 
+Azure Portal
 ![Azure Portal](images/Screenshots/SIEM_sc1.PNG)
 
 1. **Create the Azure VM**:
