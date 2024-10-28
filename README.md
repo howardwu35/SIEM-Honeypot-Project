@@ -2,7 +2,7 @@
 
 ---
 
-This home lab project demonstrates how to deploy an Azure Virtual Machine exposed to the internet to attract attackers from around the world. We will use Azure Log Analytics Workspace and Security Information and Event Management (SIEM) tools to monitor malicious activity and analyze the incoming attack vectors in real-time.
+This project provides a comprehensive walkthrough of using Microsoft Azure to deploy a Windows 10 virtual machine (VM) in the cloud, configured for internet accessibility. The setup employs Azure Log Analytics Workspace, Microsoft Defender for Cloud, and Microsoft Sentinel to collect, aggregate, and visualize security-related data. Specifically, PowerShell is used to monitor Event Viewer on the exposed VM, focusing on EventID 4625, which tracks failed logon attempts. This log data is directed to a logfile, and the PowerShell script sends the IP addresses of failed logons to IPgeolocation.io via an API. The geolocation data is then utilized in Microsoft Sentinel to map the origins of these login attempts, enhancing security visibility. This project illustrates effective use of Azure’s cloud security and monitoring tools for real-time threat detection and analysis.
 
 ---
 
@@ -49,9 +49,8 @@ The architecture consists of the following components:
 
 ### Prerequisites:
 - An active [Microsoft Azure](https://azure.microsoft.com) account.
-- Basic knowledge of Azure resources and networking.
-- Access to an Azure Subscription that allows resource deployment.
-- A Security Information and Event Management (SIEM) tool (e.g., Azure Sentinel, Splunk, etc.).
+- Windows Machine (This project is tailored towards Windows OS)
+- Internet Access 
 
 ### Steps:
 
@@ -98,49 +97,13 @@ The architecture consists of the following components:
   
 ---
 
-## Installation
-
-### Step-by-Step Guide
-
-1. **Clone the Repository** (if hosting lab files, scripts, etc.):
-   ```bash
-   git clone https://github.com/username/azure-vm-security-lab.git
-   cd azure-vm-security-lab
-   ```
-
-2. **Deploy the Azure VM**:
-   Follow the instructions to deploy the VM using the provided ARM templates or manual setup guide.
-
-3. **Connect VM to Log Analytics**:
-   - Use the Azure Portal or the Azure CLI to link your VM to the Log Analytics Workspace.
-   - Install the Azure Monitoring Agent on your VM:
-   ```bash
-   wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh
-   sudo bash onboard_agent.sh -w <WorkspaceID> -s <SharedKey>
-   ```
-
-4. **Configure SIEM Tool**:
-   - Set up your SIEM tool to monitor data from Log Analytics.
-
----
-
 ## Usage
 
 - The VM will start capturing traffic as soon as it's deployed and exposed to the internet.
 - Use Azure Log Analytics or the SIEM platform to monitor:
-  - Failed SSH login attempts
-  - Web exploit attempts (if a web service is running)
-  - Network scans and enumeration attempts
+  - Failed RDP login attempts
   
 - Analyze attack vectors using SIEM dashboards and respond to any detected threats with custom queries or automated playbooks.
-
-Example of a KQL query to track incoming brute-force attacks:
-```kusto
-SecurityEvent
-| where EventID == 4625
-| summarize count() by IpAddress, Computer
-| order by count_ desc
-```
 
 ---
 
