@@ -68,7 +68,7 @@ The architecture consists of the following components:
 
 ### Steps:
 
-![Azure Portal](images/Screenshots/SIEM_sc1.png)
+![Azure Portal](images/Screenshots/SIEM_sc1.PNG)
 
 1. **Create the Azure VM**:
    - Deploy a Windows VM using the Azure Portal.
