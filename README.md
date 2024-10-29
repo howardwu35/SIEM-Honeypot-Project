@@ -62,9 +62,9 @@ The architecture consists of the following components:
 
 ### Prerequisites:
 - An active [Microsoft Azure](https://azure.microsoft.com) account.
+  - Sign up for an Azure to get $200 in free credit
 - Windows Machine (This project is tailored towards Windows OS).
-  - PowerShell Installed
-- Internet Access
+  - PowerShell installed on the device
 
 ### Steps:
 
@@ -82,23 +82,21 @@ The architecture consists of the following components:
 ![Azure Portal](images/Screenshots/SIEM_sc4.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc5.PNG)
 
-1. **Create the Azure VM**:
-   - Deploy a Windows VM using the Azure Portal.
-   - Ensure the VM has a public IP address and is connected to the internet with minimal firewall protections.
-   - Open necessary ports to attract attacks (e.g., SSH on port 22, HTTP on port 80, etc.).
+| **Log Analytics Workspace** |
+|:----------------:|
+| Search for "Log Analytics Workspace" in the search bar |
+![Azure Portal](images/Screenshots/SIEM_sc6.PNG)
 
-2. **Set Up Log Analytics Workspace**:
-   - In the Azure Portal, create a Log Analytics Workspace.
-   - Link the VM to this workspace to start collecting logs (e.g., security events, syslog, network data).
+| **Create a Log Analytics Workspace** |
+|:----------------:|
+| Create a new LAW. Select the right resource group, name, and region then click through until you create the new Log Analytics Workspace. |
+![Azure Portal](images/Screenshots/SIEM_sc7.PNG)
 
-3. **Configure SIEM Tool**:
-   - Deploy and integrate a SIEM tool like Azure Sentinel or another tool.
-   - Connect it to your Log Analytics Workspace for real-time monitoring and alerts.
-   - Set up workbooks and detection rules to analyze malicious activity.
-
-4. **Expose VM**:
-   - Leave the VM running continuously to attract global attackers.
-   - Monitor and capture the attack traffic.
+| **Microsoft Defender for Cloud** |
+|:----------------:|
+| Search for "Microsoft Defender for Cloud" in the search bar. Once you arrive on the page, look for **Environment settings** on the left-hand side then find & click on your LAW that you created earlier (in my case it would be "law-honeypot"). In the **Defender plans** settings, make sure that everything but "SQL servers on machines" is turned on and then click on the **Data collection** option on the left. For this, make sure it is set to "All Events" and then exit the page. |
+![Azure Portal](images/Screenshots/SIEM_sc8.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc9.PNG)
 
 ---
 
