@@ -64,7 +64,7 @@ The architecture consists of the following components:
 - An active [Microsoft Azure](https://azure.microsoft.com) account.
 - Windows Machine (This project is tailored towards Windows OS).
   - PowerShell Installed
-- Internet Access (for 
+- Internet Access
 
 ### Steps:
 
