@@ -73,9 +73,9 @@ The architecture consists of the following components:
 | After creating an Azure account, open the Azure Portal |
 ![Azure Portal](images/Screenshots/SIEM_sc1.PNG)
 
-|                  |
-|:----------------:|
 | **Create Azure VM** |
+|:----------------:|
+| Fill in VM name, Create a new resource group, select a size (you can upgrade later), create a new admin account, then make sure that **Public Inbound Ports** are set to "Allow Selected Ports" and the Selected ports to be "RDP (3349)" |
 ![Azure Portal](images/Screenshots/SIEM_sc2.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc3.PNG)
 
