@@ -75,7 +75,7 @@ The architecture consists of the following components:
 
 | **Create Azure VM** |
 |:----------------:|
-| Fill in VM name, Create a new resource group, select a size (you can upgrade later), create a new admin account, then make sure that **Public Inbound Ports** are set to "Allow Selected Ports" and the Selected ports to be "RDP (3349)" |
+| Create a new resource group (names do not matter), fill in vm name, select a region (West US 2 works for me) & size (Not seen in screenshot but the option is above **Adminstrator Account**, you can choose a bigger suze to ensure a better VM performance), create a new admin account, then make sure that **Public Inbound Ports** are set to "Allow Selected Ports" and the Selected ports to be "RDP (3349)" |
 ![Azure Portal](images/Screenshots/SIEM_sc2.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc3.PNG)
 
