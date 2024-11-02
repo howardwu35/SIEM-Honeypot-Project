@@ -97,6 +97,24 @@ The architecture consists of the following components:
 | Search for "Microsoft Defender for Cloud" in the search bar. Once you arrive on the page, look for **Environment settings** on the left-hand side then find & click on your LAW that you created earlier (in my case it would be "law-honeypot"). In the **Defender plans** settings, make sure that everything but "SQL servers on machines" is turned on and then click on the **Data collection** option on the left. For this, make sure it is set to "All Events" and then exit the page. |
 ![Azure Portal](images/Screenshots/SIEM_sc8.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc9.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc10.PNG)
+
+| **Connect Sentinel to VM** |
+|:----------------:|
+| Now, go back to Log Analytics Workspace and find the "Virtual machines (deprecated)" option and click your VM to connect it. Then, travel to the "Microsoft Sentinel" page, click to create a new Sentinel resource and then connect to your workplace.  |
+![Azure Portal](images/Screenshots/SIEM_sc11.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc12.PNG)
+
+| **Start and Connect to your VM** |
+|:----------------:|
+| Traverse to the Virtual machines section and open Remote Desktop Connection on your native PC. On the VM information page, find & copy the public IP address of your VM and paste it into Remote Desktop. Once prompted to login, enter the credentials of the admin account you create earlier.|
+![Azure Portal](images/Screenshots/SIEM_sc13.PNG)
+
+| **Start and Connect to your VM** |
+|:----------------:|
+| Traverse to the Virtual machines section and open Remote Desktop Connection on your native PC. On the VM information page, find & copy the public IP address of your VM and paste it into Remote Desktop. Once prompted to login, enter the credentials of the admin account you create earlier. |
+![Azure Portal](images/Screenshots/SIEM_sc14.PNG)
+
 
 ---
 
