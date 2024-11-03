@@ -110,11 +110,21 @@ The architecture consists of the following components:
 | Traverse to the Virtual machines section and open Remote Desktop Connection on your native PC. On the VM information page, find & copy the public IP address of your VM and paste it into Remote Desktop. Once prompted to login, enter the credentials of the admin account you create earlier.|
 ![Azure Portal](images/Screenshots/SIEM_sc13.PNG)
 
-| **Start and Connect to your VM** |
+| **Start VM and Event Viewer** |
 |:----------------:|
-| Traverse to the Virtual machines section and open Remote Desktop Connection on your native PC. On the VM information page, find & copy the public IP address of your VM and paste it into Remote Desktop. Once prompted to login, enter the credentials of the admin account you create earlier. |
+| Once logged in (you can choose no for all privacy settings and skip through the rest), search for Event Viewer on your VM. Event Viewer allows you to see event logs that have actions identified by their EventID. Opening Event Viewer, go to Windows Logs -> Security to see any security event logs. You can try to open another Remote Desktop tab and purposely enter wrong credentials to see if a new security log with ID 4625, meaning failed login attempt, will show up. |
 ![Azure Portal](images/Screenshots/SIEM_sc14.PNG)
 
+| **Expose VM** |
+|:----------------:|
+| In order to let all attackers in, we need to disable the firewall of the VM. Go to Windows Defender Firewall, click blue properties button under the listed profiles, and then for the Domain, Private, and Public profiles, turn firewall state off. To check if the changes were applied, go to back to your native PC, open terminal, and then using the ping command 'ping 20.120.177.152 -t' (change the ip address to your VM's public ip). If the VM sends an ICMP echo reply then it means that it works. |
+![Azure Portal](images/Screenshots/SIEM_sc15.PNG)
+
+| **API Key and Script** |
+|:----------------:|
+| Now, go  |
+![Azure Portal](images/Screenshots/SIEM_sc16.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc17.PNG)
 
 ---
 
