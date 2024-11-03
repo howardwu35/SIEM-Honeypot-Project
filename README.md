@@ -122,7 +122,7 @@ The architecture consists of the following components:
 
 | **API Key and Script** |
 |:----------------:|
-| Now, go  |
+| Now, go to ipgeolocation.io on your native PC, sign up if you haven't already, then get your api key. Going back to the VM, open Powershell ISE and insert the script provided in this repo either by downloading it or copy & pasting it. In the "$API_KEY" line replace the key with yours that you got from the website. |
 ![Azure Portal](images/Screenshots/SIEM_sc16.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc17.PNG)
 
