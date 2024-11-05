@@ -135,9 +135,13 @@ The architecture consists of the following components:
 
 | **Workbook Creation + World Map** |
 |:----------------:|
-| On this step, you can create custom fields that can be used for extracting specific information and tailored insights. In this case, extracting custom fields for your world map will create a more advanced, customizable, and and other benefits but we will skip this step. You can find instructions for doing this in other SIEM lab tutorials. To create a worldmap, go to Microsoft Sentinel -> Workbooks -> Add Workbook. Then Add -> Add Query, add the query labeled "KQL_Query" in this repo into the work space, adjust the map settings, and then run it. |
+| On this step, you can create custom fields that can be used for extracting specific information and tailored insights. In this case, extracting custom fields for your world map will create a more advanced, customizable, and and other benefits but we will skip this step. You can find instructions for doing this in other SIEM lab tutorials. To create a worldmap, go to Microsoft Sentinel -> Workbooks -> Add Workbook. Then Add -> Add Query, add the query labeled "KQL_Query" in this repo into the work space, adjust the map settings, and then run it. You should see the indicators where attackers are trying to attempt RDP brute force attacks from.  |
 ![Azure Portal](images/Screenshots/SIEM_sc23.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc24.PNG)
+
+| **Conclusion** |
+|:----------------:|
+| That about wraps up the lab. After finishing, remember to delete the resource group so you don't continue to be charged. If there are any questions or concerns please feel free to contact me. |
 
 ---
 
@@ -173,7 +177,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Howard Wu - howardwu35@gmail.com
 
-Project Link: [https://github.com/username/azure-vm-security-lab](https://github.com/username/azure-vm-security-lab)
+LinkedIn: linkedin.com/in/howardwu35
 
 ---
 
