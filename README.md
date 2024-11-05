@@ -122,9 +122,22 @@ The architecture consists of the following components:
 
 | **API Key and Script** |
 |:----------------:|
-| Now, go to ipgeolocation.io on your native PC, sign up if you haven't already, then get your api key. Going back to the VM, open Powershell ISE and insert the script provided in this repo either by downloading it or copy & pasting it. In the "$API_KEY" line replace the key with yours that you got from the website. |
+| Now, go to ipgeolocation.io on your native PC, sign up if you haven't already, then get your api key. Going back to the VM, open Powershell ISE and insert the script provided in this repo either by downloading it or copy & pasting it. In the "$API_KEY" line replace the key with yours that you got from the website. Once you are finished pasting the key, save the file and then run the script. Any failed login attempts will be in purple text in the terminal below the script and should be logged in the file "failed_rdp". |
 ![Azure Portal](images/Screenshots/SIEM_sc16.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc17.PNG)
+
+| **Bring failed_log into LAWs** |
+|:----------------:|
+| We want to bring the log of failed attempts into Log Analytics Workspace. Navigate to your LAW, find the "Tables" dropdown, and then click "Create" -> "New custom log (MMA-based)". The next step is the Sample. This is where we enter the failed_log data to train LAW. Open Notepad on your native PC, copy the contents of the log file from your VM & paste it into the new Notepad, save it, and enter the file as the sample. Proceed until you reach "Collection Paths" and enter the path file of the original failed_log file in the VM. Finish and create the new log (this step may take some time). |
+![Azure Portal](images/Screenshots/SIEM_sc18.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc19.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc20.PNG)
+
+| **Workbook Creation + World Map** |
+|:----------------:|
+| On this step, you can create custom fields that can be used for extracting specific information and tailored insights. In this case, extracting custom fields for your world map will create a more advanced, customizable, and and other benefits but we will skip this step. You can find instructions for doing this in other SIEM lab tutorials. To create a worldmap, go to Microsoft Sentinel -> Workbooks -> Add Workbook. Then Add -> Add Query, add the query listed in the image |
+![Azure Portal](images/Screenshots/SIEM_sc23.PNG)
+![Azure Portal](images/Screenshots/SIEM_sc24.PNG)
 
 ---
 
