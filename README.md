@@ -135,7 +135,7 @@ The architecture consists of the following components:
 
 | **Workbook Creation + World Map** |
 |:----------------:|
-| On this step, you can create custom fields that can be used for extracting specific information and tailored insights. In this case, extracting custom fields for your world map will create a more advanced, customizable, and and other benefits but we will skip this step. You can find instructions for doing this in other SIEM lab tutorials. To create a worldmap, go to Microsoft Sentinel -> Workbooks -> Add Workbook. Then Add -> Add Query, add the query listed in the image |
+| On this step, you can create custom fields that can be used for extracting specific information and tailored insights. In this case, extracting custom fields for your world map will create a more advanced, customizable, and and other benefits but we will skip this step. You can find instructions for doing this in other SIEM lab tutorials. To create a worldmap, go to Microsoft Sentinel -> Workbooks -> Add Workbook. Then Add -> Add Query, add the query labeled "KQL_Query" in this repo into the work space, adjust the map settings, and then run it. |
 ![Azure Portal](images/Screenshots/SIEM_sc23.PNG)
 ![Azure Portal](images/Screenshots/SIEM_sc24.PNG)
 
